@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "airship_civ_configure:item/steel_sheet"
+  }
+}

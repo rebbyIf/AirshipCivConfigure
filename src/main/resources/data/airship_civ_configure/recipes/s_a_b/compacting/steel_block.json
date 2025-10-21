@@ -1,0 +1,17 @@
+{
+  "type": "create:compacting",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "item": "airship_civ_configure:steel_sheet"
+    },
+    {
+      "item": "airship_civ_configure:steel_sheet"
+    }
+  ],
+  "results": [
+    {
+      "item": "s_a_b:steelblock"
+    }
+  ]
+}

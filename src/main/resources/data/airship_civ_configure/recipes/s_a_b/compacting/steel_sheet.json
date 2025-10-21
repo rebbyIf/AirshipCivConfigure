@@ -1,0 +1,13 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "ingotcraft:steel_ingot"
+    }
+  ],
+  "results": [
+    {
+      "item": "airship_civ_configure:steel_sheet"
+    }
+  ]
+}

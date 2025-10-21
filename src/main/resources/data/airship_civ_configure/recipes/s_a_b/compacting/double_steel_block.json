@@ -1,0 +1,23 @@
+{
+  "type": "create:compacting",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "item": "s_a_b:steelblock"
+    },
+    {
+      "item": "s_a_b:steelblock"
+    },
+    {
+      "item": "s_a_b:steelblock"
+    },
+    {
+      "item": "s_a_b:steelblock"
+    }
+  ],
+  "results": [
+    {
+      "item": "s_a_b:doublesteelblock"
+    }
+  ]
+}
