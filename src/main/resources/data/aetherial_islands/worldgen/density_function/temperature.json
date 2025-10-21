@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:add",
+    "argument1": {
+        "type": "minecraft:flat_cache",
+        "argument": {
+            "type": "minecraft:noise",
+            "noise": "airship_civ_configure:temperature",
+            "xz_scale": 0.25,
+            "y_scale": 0
+        }
+    },
+    "argument2": {
+        "type": "minecraft:add",
+        "argument1": -1.2,
+        "argument2": {
+            "type": "minecraft:mul",
+            "argument1": 0.0004,
+            "argument2": {
+                "type": "moredfs:radius"
+            }
+        }
+    }
+}
