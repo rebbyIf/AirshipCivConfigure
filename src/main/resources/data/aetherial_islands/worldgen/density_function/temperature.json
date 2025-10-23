@@ -14,7 +14,7 @@
         "argument1": -1.2,
         "argument2": {
             "type": "minecraft:mul",
-            "argument1": 0.0004,
+            "argument1": 0.0003,
             "argument2": {
                 "type": "moredfs:radius"
             }

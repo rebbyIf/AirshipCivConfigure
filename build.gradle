@@ -228,9 +228,9 @@ dependencies {
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
     // Mods withing the Libs folder
 //    runtimeOnly fg.deobf("libs:eureka-1201:1.5.1-beta.3")
-//    runtimeOnly fg.deobf("libs:aetherial-islands:2.0.1")
-//    runtimeOnly fg.deobf("libs:lithostitched-forge-1.20.1:1.4.11")
-//    runtimeOnly fg.deobf("libs:moredensityfunctions-forge-1.20.1:2.2.1")
+    runtimeOnly fg.deobf("libs:aetherial-islands:2.0.1")
+    runtimeOnly fg.deobf("libs:lithostitched-forge-1.20.1:1.4.11")
+    runtimeOnly fg.deobf("libs:moredensityfunctions-forge-1.20.1:2.2.1")
 //    runtimeOnly fg.deobf("libs:emi:1.1.22+1.20.1+forge")
 //    runtimeOnly fg.deobf("libs:createbigcannons:5.8.2-mc.1.20.1-forge")
 //    runtimeOnly fg.deobf("libs:s_a_b:1.4.0")
