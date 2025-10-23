@@ -1,6 +1,6 @@
 {
   "type": "create:compacting",
-  "heatRequirement": "heated",
+  "heatRequirement": "superheated",
   "ingredients": [
     {
       "item": "s_a_b:steelblock"

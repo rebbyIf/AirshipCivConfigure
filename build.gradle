@@ -83,6 +83,10 @@ minecraft {
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
 
+            // For Create
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
             mods {
                 "${mod_id}" {
                     source sourceSets.main
@@ -93,6 +97,8 @@ minecraft {
         client {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', mod_id
+            property("mixin.env.remapRefMap", "true")
+            property("mixin.env.refMapRemappingFile", "${projectDir}/build/createSrgToMcp/output.srg")
         }
 
         server {
@@ -151,6 +157,16 @@ repositories {
         url = "https://maven.blamejared.com/"
     }
 
+    maven {
+        name = 'tterrag maven'
+        url = 'https://maven.tterrag.com/'
+    }
+
+    maven {
+        name "ModMaven"
+        url "https://modmaven.dev"
+    }
+
 }
 
 dependencies {
@@ -167,19 +183,16 @@ dependencies {
 
     //implementation fg.deobf("libs:kotlinforforge:4.11.0-all")
     //implementation fg.deobf("libs:valkyrienskies-120:2.3.0-beta.10")
-    // Mods withing the Libs folder
 
-    implementation fg.deobf("libs:eureka-1201:1.5.1-beta.3")
-    runtimeOnly fg.deobf("libs:aetherial-islands:2.0.1")
-    runtimeOnly fg.deobf("libs:lithostitched-forge-1.20.1:1.4.11")
-    runtimeOnly fg.deobf("libs:moredensityfunctions-forge-1.20.1:2.2.1")
-    runtimeOnly fg.deobf("libs:emi:1.1.22+1.20.1+forge")
-    runtimeOnly fg.deobf("libs:create:1.20.1-0.5.1.j")
-    runtimeOnly fg.deobf("libs:createbigcannons:5.8.2-mc.1.20.1-forge")
-    runtimeOnly fg.deobf("libs:s_a_b:1.4.0")
-    runtimeOnly fg.deobf("libs:create_interactive:1.1.1-beta.4_1.20.1-forge")
-    runtimeOnly fg.deobf("libs:ingotcraft:1.20.1-2.4.11-forge")
-    runtimeOnly fg.deobf("libs:ritchiesprojectilelib:2.1.0+mc.1.20.1-forge")
+    // Create Implementation
+    implementation fg.deobf("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
+    implementation fg.deobf("com.jozufozu.flywheel:flywheel-forge-${minecraft_version}:${flywheel_version}")
+    implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
+//
+    compileOnly("io.github.llamalad7:mixinextras-common:${mixinextras_version}")
+    implementation("io.github.llamalad7:mixinextras-forge:${mixinextras_version}")
+
+
 
     implementation fg.deobf("org.valkyrienskies:valkyrienskies-120-forge:${vs2_version}") {
         exclude group: 'com.simibubi', module: ''
@@ -205,14 +218,25 @@ dependencies {
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compile against the JEI API but do not include it at runtime
-    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
-    // at runtime, use the full JEI jar for Forge
-    runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
+//    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
+//    // at runtime, use the full JEI jar for Forge
+//    runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
     // The group id is ignored when searching -- in this case, it is "blank"
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
+    // Mods withing the Libs folder
+//    runtimeOnly fg.deobf("libs:eureka-1201:1.5.1-beta.3")
+//    runtimeOnly fg.deobf("libs:aetherial-islands:2.0.1")
+//    runtimeOnly fg.deobf("libs:lithostitched-forge-1.20.1:1.4.11")
+//    runtimeOnly fg.deobf("libs:moredensityfunctions-forge-1.20.1:2.2.1")
+//    runtimeOnly fg.deobf("libs:emi:1.1.22+1.20.1+forge")
+//    runtimeOnly fg.deobf("libs:createbigcannons:5.8.2-mc.1.20.1-forge")
+//    runtimeOnly fg.deobf("libs:s_a_b:1.4.0")
+//    runtimeOnly fg.deobf("libs:create_interactive:1.1.1-beta.4_1.20.1-forge")
+//    runtimeOnly fg.deobf("libs:ingotcraft:1.20.1-2.4.11-forge")
+//    runtimeOnly fg.deobf("libs:ritchiesprojectilelib:2.1.0+mc.1.20.1-forge")
 
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html

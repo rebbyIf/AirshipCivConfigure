@@ -14,7 +14,7 @@ public class ModItems {
     // Creates a new food item with the id "examplemod:example_id", nutrition 1 and saturation 2
     public static final RegistryObject<Item> STEEL_SHEET = ITEMS.register("steel_sheet", () -> new Item(new Item.Properties()));
 
-    public static void register(IEventBus eventBus) {
-        ITEMS.register(eventBus);
+    public static void register(IEventBus modEventBus) {
+        ITEMS.register(modEventBus);
     }
 }
