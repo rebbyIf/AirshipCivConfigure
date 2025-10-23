@@ -243,15 +243,15 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 }
 
-mixin {
-    // MixinGradle Settings
-    add sourceSets.main, 'mixins.airship_civ_configure.refmap.json'
-
-    config 'mixins.airship_civ_configure.json'
-
-    debug.verbose = true
-    debug.export = true
-}
+//mixin {
+//    // MixinGradle Settings
+//    add sourceSets.main, 'mixins.airship_civ_configure.refmap.json'
+//
+//    config 'mixins.airship_civ_configure.json'
+//
+//    debug.verbose = true
+//    debug.export = true
+//}
 
 // This block of code expands all declared replace properties in the specified resource targets.
 // A missing property will result in an error. Properties are expanded using ${} Groovy notation.
