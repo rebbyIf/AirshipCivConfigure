@@ -38,7 +38,7 @@ public class AirshipCivConfigure
     public static final CreateRegistrate AIRSHIP_CIV_CONFIGURE_REGISTRATE =
             CreateRegistrate.create(MODID);
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
     // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
 
     // Creates a new Block with the id "examplemod:example_block", combining the namespace and path
