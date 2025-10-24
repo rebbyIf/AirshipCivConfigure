@@ -200,6 +200,7 @@ dependencies {
         exclude group: 'dev.engine-room', module: ''
         exclude group: 'com.jozufozu', module: ''
     }
+    implementation("org.joml:joml-primitives:1.10.0")
     implementation("org.valkyrienskies.core:api:${vscore_version}") {
         exclude group: 'org.joml', module: ''
     }
@@ -216,8 +217,8 @@ dependencies {
      //FORGE
     implementation 'thedarkcolour:kotlinforforge:4.10.0'
 
-    compileOnly("org.valkyrienskies.eureka:eureka-1201-common:1.5.2-beta.3+6a8f7ebb44")
-    implementation("org.valkyrienskies.eureka:eureka-1201-forge:1.5.2-beta.3+6a8f7ebb44")
+    compileOnly("org.valkyrienskies.eureka:eureka-1201-common:${eureka_version}")
+    runtimeOnly fg.deobf("org.valkyrienskies.eureka:eureka-1201-forge:${eureka_version}")
     //implementation "org.valkyrienskies.eureka:eureka-1201-common:${eureka_version}"
 
     compileOnly("io.github.llamalad7:mixinextras-common:${mixinextras_version}")
