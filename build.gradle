@@ -242,6 +242,8 @@ dependencies {
     runtimeOnly fg.deobf("libs:aetherial-islands:2.0.1")
     runtimeOnly fg.deobf("libs:lithostitched-forge-1.20.1:1.4.11")
     runtimeOnly fg.deobf("libs:moredensityfunctions-forge-1.20.1:2.2.1")
+    runtimeOnly fg.deobf("libs:clockwork:1.20.1-0.1.16-forge-b3b22e39fe")
+    runtimeOnly fg.deobf("libs:architectury:9.2.14-forge")
 //    runtimeOnly fg.deobf("libs:emi:1.1.22+1.20.1+forge")
 //    runtimeOnly fg.deobf("libs:createbigcannons:5.8.2-mc.1.20.1-forge")
 //    runtimeOnly fg.deobf("libs:s_a_b:1.4.0")
