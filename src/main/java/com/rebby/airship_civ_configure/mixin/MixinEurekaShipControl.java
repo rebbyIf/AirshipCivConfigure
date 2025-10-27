@@ -7,9 +7,11 @@ import com.rebby.airship_civ_configure.Config;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import org.joml.Vector3d;
+import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.valkyrienskies.core.api.ships.ServerShip;
 import org.valkyrienskies.eureka.ship.EurekaShipControl;
 import org.valkyrienskies.mod.common.VSGameUtilsKt;
@@ -38,5 +40,15 @@ public abstract class MixinEurekaShipControl {
     )
     private Vector3d unNormalize(Vector3d instance, Operation<Vector3d> original) {
         return instance.mul(Config.eurekaImpulseSpeedRate);
+    }
+
+    @Redirect(
+            method = "applyForces",
+            at = @At(value = "FIELD", target = "Lorg/valkyrienskies/eureka/ship/EurekaShipControl;isCruising:Z",
+                    opcode = Opcodes.GETFIELD, ordinal = 2),
+            remap = false
+    )
+    private boolean maintainCruise(EurekaShipControl instance) {
+        return true;
     }
 }
