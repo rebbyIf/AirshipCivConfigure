@@ -1,0 +1,72 @@
+[
+  {
+    "block": "s_a_b:doublesteelblock","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:doublesteelblockcamoplains","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:doublesteelblockcamoforest","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:doublesteelblockcamosnow","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:doublesteelblockcamodesert","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:doublesteelblockcamomesa","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:doublesteelblockcamoswamp","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:doublesteelblockcamojungle","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:doublesteelblockcamotaiga","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:blackdoublesteelblock","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:reddoublesteelblock","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:greendoublesteelblock","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:bluedoublesteelblock","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:cyandoublesteelblock","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:browndoublesteelblock","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:graydoublesteelblock","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:lightgraydoublesteelblock","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:lightbluedoublesteelblock","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:magentadoublesteelblock","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:yellowdoublesteelblock","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:pinkdoublesteelblock","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:purpledoublesteelblock","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:orangedoublesteelblock","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:limedoublesteelblock","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:whitedoublesteelblock","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:doublesteelblockcolored_29","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:doublesteelblockcolored_31","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:doublesteelblockcolored_32","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:doublesteelblockcolored_33","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:doublesteelblockcoloredparade","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:doublesteelblockshipbottom","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:doublesteelblock_4bo","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:doublesteelblockgelb","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:doublesteelblockpanzergrau","mass": 5000.0, "friction": 0.3, "priority": 101},
+  {
+    "block": "s_a_b:doublesteelblockrotbraun","mass": 5000.0, "friction": 0.3, "priority": 101}
+]
