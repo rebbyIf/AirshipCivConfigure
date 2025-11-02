@@ -1,0 +1,41 @@
+{
+  "ore": "minecraft:deepslate_redstone_ore",
+  "secondary_ore": "minecraft:redstone_block",
+  "filler_block": "minecraft:diorite",
+  "vein_toggle": {
+    "input": "airship_civ_configure:vein/default_toggle",
+    "min_threshold": -1,
+    "max_threshold": 1
+  },
+  "vein_ridged": "airship_civ_configure:vein/default_ridged",
+  "vein_gap": "airship_civ_configure:vein/default_gap",
+  "conditions": {
+    "type": "dynamic_veins:all_of",
+    "conditions": [
+      {
+        "type": "dynamic_veins:height_range",
+        "min_inclusive": {
+          "above_bottom": 4
+        },
+        "max_inclusive": {
+          "absolute": 0
+        }
+      },
+
+      {
+        "type": "dynamic_veins:biome",
+        "biomes": [
+          "minecraft:desert",
+          "minecraft:badlands",
+          "minecraft:wooded_badlands",
+          "minecraft:windswept_savanna",
+          "minecraft:eroded_badlands",
+          "minecraft:plains",
+          "minecraft:snowy_plains",
+          "minecraft:meadow",
+          "minecraft:sunflower_plains"
+        ]
+      }
+    ]
+  }
+}

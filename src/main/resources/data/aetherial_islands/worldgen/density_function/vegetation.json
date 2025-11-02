@@ -1,13 +1,9 @@
 {
-    "type": "add",
-    "argument1": 0.125,
-    "argument2": {
-        "type": "minecraft:flat_cache",
-        "argument": {
-            "type": "minecraft:noise",
-            "noise": "minecraft:vegetation",
-            "xz_scale": 0.5,
-            "y_scale": 0
-        }
+    "type": "minecraft:flat_cache",
+    "argument": {
+        "type": "minecraft:noise",
+        "noise": "minecraft:vegetation",
+        "xz_scale": 0.5,
+        "y_scale": 0
     }
 }

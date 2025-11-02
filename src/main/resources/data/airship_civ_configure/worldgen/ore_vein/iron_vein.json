@@ -1,0 +1,44 @@
+{
+  "ore": "minecraft:iron_ore",
+  "secondary_ore": "minecraft:raw_iron_block",
+  "filler_block": "minecraft:tuff",
+  "vein_toggle": {
+    "input": "airship_civ_configure:vein/default_toggle",
+    "min_threshold": -1,
+    "max_threshold": 1
+  },
+  "vein_ridged": "airship_civ_configure:vein/default_ridged",
+  "vein_gap": "airship_civ_configure:vein/default_gap",
+  "conditions": {
+    "type": "dynamic_veins:all_of",
+    "conditions": [
+      {
+        "type": "dynamic_veins:height_range",
+        "min_inclusive": {
+          "absolute": 0
+        },
+        "max_inclusive": {
+          "below_top": 4
+        }
+      },
+
+      {
+        "type": "dynamic_veins:biome",
+        "biomes": [
+          "minecraft:taiga",
+          "minecraft:snowy_plains",
+          "minecraft:snowy_taiga",
+          "minecraft:old_growth_pine_taiga",
+          "minecraft:grove",
+          "minecraft:snowy_slopes",
+          "minecraft:jagged_peaks",
+          "minecraft:frozen_peaks",
+          "minecraft:ice_spikes",
+          "minecraft:badlands",
+          "minecraft:eroded_badlands",
+          "minecraft:wooded_badlands"
+        ]
+      }
+    ]
+  }
+}

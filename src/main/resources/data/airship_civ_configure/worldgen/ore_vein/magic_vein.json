@@ -1,0 +1,33 @@
+{
+  "ore": "minecraft:deepslate_lapis_ore",
+  "secondary_ore": "vs_clockwork:wanderlite_end_ore",
+  "filler_block": "minecraft:end_stone",
+  "vein_toggle": {
+    "input": "airship_civ_configure:vein/default_toggle",
+    "min_threshold": -1,
+    "max_threshold": 1
+  },
+  "vein_ridged": "airship_civ_configure:vein/default_ridged",
+  "vein_gap": "airship_civ_configure:vein/default_gap",
+  "conditions": {
+    "type": "dynamic_veins:all_of",
+    "conditions": [
+      {
+        "type": "dynamic_veins:height_range",
+        "min_inclusive": {
+          "above_bottom": 4
+        },
+        "max_inclusive": {
+          "absolute": 0
+        }
+      },
+
+      {
+        "type": "dynamic_veins:biome",
+        "biomes": [
+          "minecraft:deep_dark"
+        ]
+      }
+    ]
+  }
+}

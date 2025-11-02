@@ -1,0 +1,67 @@
+{
+  "ore": {
+    "type": "minecraft:weighted_state_provider",
+    "entries": [
+      {
+        "weight": 1,
+        "data": {
+          "Name": "minecraft:coal_ore"
+        }
+      },
+      {
+        "weight": 1,
+        "data": {
+          "Name": "minecraft:diamond_ore"
+        }
+      }
+    ]
+  },
+  "secondary_ore": {
+    "type": "minecraft:weighted_state_provider",
+    "entries": [
+      {
+        "weight": 3,
+        "data": {
+          "Name": "minecraft:coal_ore"
+        }
+      },
+      {
+        "weight": 1,
+        "data": {
+          "Name": "minecraft:diamond_block"
+        }
+      }
+    ]
+  },
+  "filler_block": "minecraft:andesite",
+  "vein_toggle": {
+    "input": "airship_civ_configure:vein/default_toggle",
+    "min_threshold": -1,
+    "max_threshold": 1
+  },
+  "vein_ridged": "airship_civ_configure:vein/default_ridged",
+  "vein_gap": "airship_civ_configure:vein/default_gap",
+  "conditions": {
+    "type": "dynamic_veins:all_of",
+    "conditions": [
+      {
+        "type": "dynamic_veins:height_range",
+        "min_inclusive": {
+          "absolute": 0
+        },
+        "max_inclusive": {
+          "below_top": 4
+        }
+      },
+
+      {
+        "type": "dynamic_veins:biome",
+        "biomes": [
+          "minecraft:bamboo_jungle",
+          "minecraft:jungle",
+          "minecraft:sparse_jungle"
+        ]
+      }
+    ]
+  }
+}

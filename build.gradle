@@ -171,6 +171,21 @@ repositories {
         url "https://cursemaven.com"
     }
 
+    repositories {
+        exclusiveContent {
+            forRepository {
+                maven {
+                    name = "Modrinth"
+                    url = "https://api.modrinth.com/maven"
+                }
+            }
+            forRepositories(fg.repository) // Only add this if you're using ForgeGradle, otherwise remove this line
+            filter {
+                includeGroup "maven.modrinth"
+            }
+        }
+    }
+
 }
 
 dependencies {
@@ -226,6 +241,8 @@ dependencies {
         jarJar.ranged(it, "[0.5.0,)")
     }
 
+    runtimeOnly("maven.modrinth:lmft:1.0.4+1.20.1-forge")
+
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compile against the JEI API but do not include it at runtime
@@ -244,6 +261,9 @@ dependencies {
     runtimeOnly fg.deobf("libs:moredensityfunctions-forge-1.20.1:2.2.1")
     runtimeOnly fg.deobf("libs:clockwork:1.20.1-0.1.16-forge-b3b22e39fe")
     runtimeOnly fg.deobf("libs:architectury:9.2.14-forge")
+    implementation fg.deobf("libs:DOV:1.0.0+1.20.0-4")
+    implementation fg.deobf("curse.maven:worldedit-225608:4586218")
+    //runtimeOnly fg.deobf("curse.maven:custom-ore-veins-949185:4951502")
 //    runtimeOnly fg.deobf("libs:emi:1.1.22+1.20.1+forge")
 //    runtimeOnly fg.deobf("libs:createbigcannons:5.8.2-mc.1.20.1-forge")
 //    runtimeOnly fg.deobf("libs:s_a_b:1.4.0")

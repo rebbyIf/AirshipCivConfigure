@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:interpolated",
+  "argument": {
+    "type": "minecraft:range_choice",
+    "input": "minecraft:y",
+    "max_exclusive": 368,
+    "min_inclusive": -48,
+    "when_in_range": {
+      "type": "add",
+      "argument1": 0.5,
+      "argument2": {
+        "type": "noise",
+        "noise": "airship_civ_configure:ore_veininess",
+        "xz_scale": 1.5,
+        "y_scale": 1.5
+      }
+    },
+    "when_out_of_range": 0
+  }
+}
