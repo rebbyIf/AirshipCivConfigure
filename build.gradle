@@ -186,6 +186,13 @@ repositories {
         }
     }
 
+    repositories {
+        maven {
+            name = "TerraformersMC"
+            url = "https://maven.terraformersmc.com/"
+        }
+    }
+
 }
 
 dependencies {
@@ -249,6 +256,11 @@ dependencies {
 //    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
 //    // at runtime, use the full JEI jar for Forge
 //    runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
+
+    // Forge (see below block as well if you use Forge Gradle)
+//    compileOnly fg.deobf("dev.emi:emi-forge:${emi_version}:api")
+//    runtimeOnly fg.deobf("dev.emi:emi-forge:${emi_version}")
+//    implementation fg.deobf("curse.maven:emi-ores-974009:6060341")
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
