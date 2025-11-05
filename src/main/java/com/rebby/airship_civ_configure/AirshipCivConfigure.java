@@ -29,6 +29,8 @@ import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(AirshipCivConfigure.MODID)
+
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class AirshipCivConfigure
 {
     // Define mod id in a common place for everything to reference
@@ -62,11 +64,11 @@ public class AirshipCivConfigure
         // Register the Deferred Register to the mod event bus so tabs get registered
         ModCreativeTabs.TABS.register(modEventBus);
 
+        Config.register(context);
+
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
-        // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
-        context.registerConfig(ModConfig.Type.SERVER, Config.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
