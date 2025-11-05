@@ -39,7 +39,7 @@ public abstract class MixinEurekaShipControl {
             at = @At(value = "INVOKE", target = "Lorg/joml/Vector3d;normalize()Lorg/joml/Vector3d;")
     )
     private Vector3d unNormalize(Vector3d instance, Operation<Vector3d> original) {
-        return instance.mul(Config.eurekaImpulseSpeedRate);
+        return instance.mul(Config.getServer().EUREKA_IMPULSE_SPEED_RATE.get());
     }
 
     @Redirect(

@@ -2,6 +2,7 @@ package com.rebby.airship_civ_configure.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.rebby.airship_civ_configure.Config;
 import com.simibubi.create.content.contraptions.bearing.IBearingBlockEntity;
 import com.simibubi.create.content.kinetics.KineticNetwork;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
@@ -97,6 +98,6 @@ public abstract class MixinPropellerBearingBlockEntity extends KineticBlockEntit
                 airciv$stress += (float) Math.sqrt(distSqr - distAxisSqr);
             }
         }
-        return airciv$stress * 2;
+        return airciv$stress * Config.getServer().CW_PROP_STRESS_IMPACT.getF();
     }
 }
