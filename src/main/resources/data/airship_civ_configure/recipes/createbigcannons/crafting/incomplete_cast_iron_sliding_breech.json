@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "createbigcannons:gunpowder"
+    },
+    "I": {
+      "item": "createbigcannons:cast_iron_ingot"
+    }
+  },
+  "pattern": [
+    "III",
+    " G ",
+    "III"
+  ],
+  "result": {
+    "item": "createbigcannons:incomplete_cast_iron_sliding_breech"
+  },
+  "show_notification": true
+}

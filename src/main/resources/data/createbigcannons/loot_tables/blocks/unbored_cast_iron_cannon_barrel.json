@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "createbigcannons:unbored_cast_iron_cannon_barrel"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "createbigcannons:blocks/unbored_cast_iron_cannon_barrel"
+}

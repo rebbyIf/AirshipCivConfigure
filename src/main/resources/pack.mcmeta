@@ -4,5 +4,13 @@
       "text": "${mod_id} resources"
     },
     "pack_format": 15
+  },
+  "filter":{
+    "block": [
+      {
+        "namespace": "create_connected",
+        "path": "recipes/crafting/kinetics/six_way_gearbox"
+      }
+    ]
   }
 }

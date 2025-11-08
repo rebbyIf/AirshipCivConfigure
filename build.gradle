@@ -253,13 +253,13 @@ dependencies {
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compile against the JEI API but do not include it at runtime
-//    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
-//    // at runtime, use the full JEI jar for Forge
-//    runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
+    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
+    // at runtime, use the full JEI jar for Forge
+    runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
 
     // Forge (see below block as well if you use Forge Gradle)
-//    compileOnly fg.deobf("dev.emi:emi-forge:${emi_version}:api")
-//    runtimeOnly fg.deobf("dev.emi:emi-forge:${emi_version}")
+    compileOnly fg.deobf("dev.emi:emi-forge:${emi_version}:api")
+    runtimeOnly fg.deobf("dev.emi:emi-forge:${emi_version}")
 //    implementation fg.deobf("curse.maven:emi-ores-974009:6060341")
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
@@ -277,11 +277,11 @@ dependencies {
     implementation fg.deobf("curse.maven:worldedit-225608:4586218")
     //runtimeOnly fg.deobf("curse.maven:custom-ore-veins-949185:4951502")
 //    runtimeOnly fg.deobf("libs:emi:1.1.22+1.20.1+forge")
-//    runtimeOnly fg.deobf("libs:createbigcannons:5.8.2-mc.1.20.1-forge")
+    implementation fg.deobf("libs:createbigcannons:5.8.2-mc.1.20.1-forge")
 //    runtimeOnly fg.deobf("libs:s_a_b:1.4.0")
 //    runtimeOnly fg.deobf("libs:create_interactive:1.1.1-beta.4_1.20.1-forge")
 //    runtimeOnly fg.deobf("libs:ingotcraft:1.20.1-2.4.11-forge")
-//    runtimeOnly fg.deobf("libs:ritchiesprojectilelib:2.1.0+mc.1.20.1-forge")
+    implementation fg.deobf("libs:ritchiesprojectilelib:2.1.0+mc.1.20.1-forge")
 
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
