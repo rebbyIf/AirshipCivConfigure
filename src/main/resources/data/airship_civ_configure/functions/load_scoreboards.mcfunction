@@ -1,0 +1,2 @@
+scoreboard objectives add airship_civ_config.global dummy
+scoreboard players add $airship_civ_config.play_dead_manager.state airship_civ_config.global 0

@@ -1,0 +1,1 @@
+function airship_civ_configure:load_scoreboards
