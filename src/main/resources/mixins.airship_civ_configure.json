@@ -4,6 +4,7 @@
   "package": "com.rebby.airship_civ_configure.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "MixinLevel",
     "MixinEurekaShipControl",
     "MixinPropellerBearingBlockEntity",
     "MixinPropellerController"
