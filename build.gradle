@@ -204,6 +204,10 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:${mixinextras_version}"))
+    implementation(jarJar("io.github.llamalad7:mixinextras-forge:${mixinextras_version}")) {
+        jarJar.ranged(it, "[0.4.1,)")
+    }
 
     //implementation fg.deobf("org.valkyrienskies:valkyrienskies-120")
 
@@ -242,11 +246,6 @@ dependencies {
     compileOnly("org.valkyrienskies.eureka:eureka-1201-common:${eureka_version}")
     runtimeOnly fg.deobf("org.valkyrienskies.eureka:eureka-1201-forge:${eureka_version}")
     //implementation "org.valkyrienskies.eureka:eureka-1201-common:${eureka_version}"
-
-    compileOnly("io.github.llamalad7:mixinextras-common:${mixinextras_version}")
-    implementation(jarJar("io.github.llamalad7:mixinextras-forge:${mixinextras_version}")){
-        jarJar.ranged(it, "[0.5.0,)")
-    }
 
     runtimeOnly("maven.modrinth:lmft:1.0.4+1.20.1-forge")
 
@@ -290,16 +289,9 @@ dependencies {
 
 mixin {
     // MixinGradle Settings
-    add sourceSets.main, 'mixins.airship_civ_configure.refmap.json'
+    add sourceSets.main, 'airship_civ_configure.refmap.json'
 
     config 'mixins.airship_civ_configure.json'
-
-    debug.verbose = true
-    debug.export = true
-    dumpTargetOnFailure = true
-
-    // Options for the Annotation Processor
-    quiet
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

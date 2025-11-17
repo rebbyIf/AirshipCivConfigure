@@ -20,11 +20,12 @@ import org.valkyrienskies.mod.common.ValkyrienSkiesMod;
 
 @Mixin(value = EurekaShipControl.class)
 public abstract class MixinEurekaShipControl {
-    @Shadow
+    @Shadow(remap = false)
     private ServerShip ship;
 
     @WrapMethod(
-            method = "getCanDisassemble"
+            method = "getCanDisassemble",
+            remap = false
     )
     private boolean wrapCanDisassemble(Operation<Boolean> original) {
         if (!original.call()) return false;
@@ -36,6 +37,7 @@ public abstract class MixinEurekaShipControl {
 
     @WrapOperation(
             method = "getPlayerForwardVel",
+            remap = false,
             at = @At(value = "INVOKE", target = "Lorg/joml/Vector3d;normalize()Lorg/joml/Vector3d;")
     )
     private Vector3d unNormalize(Vector3d instance, Operation<Vector3d> original) {

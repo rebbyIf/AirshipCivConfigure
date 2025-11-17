@@ -31,7 +31,7 @@ public abstract class MixinPropellerBearingBlockEntity extends KineticBlockEntit
     @Unique
     float airciv$stress = 0.0f;
 
-    @Shadow
+    @Shadow(remap = false)
     private List<BlockPos> sailPositions;
 
     public MixinPropellerBearingBlockEntity(BlockEntityType<?> typeIn, BlockPos pos, BlockState state) {
@@ -59,7 +59,8 @@ public abstract class MixinPropellerBearingBlockEntity extends KineticBlockEntit
     }
 
     @WrapMethod(
-            method = "read"
+            method = "read",
+            remap = false
     )
     private void readTag(CompoundTag compound, boolean clientPacket, Operation<Void> original) {
         original.call(compound, clientPacket);
@@ -67,7 +68,8 @@ public abstract class MixinPropellerBearingBlockEntity extends KineticBlockEntit
     }
 
     @WrapMethod(
-            method = "write"
+            method = "write",
+            remap = false
     )
     private void writeTag(CompoundTag compound, boolean clientPacket, Operation<Void> original) {
         original.call(compound, clientPacket);
