@@ -5,17 +5,26 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "MixinEurekaShipControl",
+    "MixinFlapBlock",
+    "MixinLevel",
+    "MixinPersistentEntitySectionManager",
+    "MixinProjectile",
     "MixinPropellerBearingBlockEntity",
-    "MixinPropellerController"
+    "MixinPropellerController",
+    "MixinServerLevel",
+    "MixinWingBlock",
+    "thrown_velocity.MixinEntity",
+    "thrown_velocity.MixinPlayer",
+    "thrown_velocity.MixinProjectile"
   ],
-  "client": [],
+  "client": [
+    "MixinClientPacketHandler"
+  ],
   "injectors": {
     "defaultRequire": 1
   },
   "overwrites": {
     "requireAnnotations": true
   },
-  "mixinextras": {
-    "minVersion": "0.5.0"
-  }
+  "refmap": "airship_civ_configure.refmap.json"
 }

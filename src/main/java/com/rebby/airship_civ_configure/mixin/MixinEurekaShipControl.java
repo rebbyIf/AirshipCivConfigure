@@ -3,16 +3,19 @@ package com.rebby.airship_civ_configure.mixin;
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import com.rebby.airship_civ_configure.Config;
+import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import org.joml.Vector3d;
-import org.objectweb.asm.Opcodes;
+import org.joml.Vector3dc;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.*;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.valkyrienskies.core.api.ships.PhysShip;
 import org.valkyrienskies.core.api.ships.ServerShip;
+import org.valkyrienskies.core.impl.game.ships.PhysShipImpl;
+import org.valkyrienskies.eureka.EurekaConfig;
 import org.valkyrienskies.eureka.ship.EurekaShipControl;
 import org.valkyrienskies.mod.common.VSGameUtilsKt;
 import org.valkyrienskies.mod.common.ValkyrienSkiesMod;
@@ -20,11 +23,12 @@ import org.valkyrienskies.mod.common.ValkyrienSkiesMod;
 
 @Mixin(value = EurekaShipControl.class)
 public abstract class MixinEurekaShipControl {
-    @Shadow
+    @Shadow(remap = false)
     private ServerShip ship;
 
     @WrapMethod(
-            method = "getCanDisassemble"
+            method = "getCanDisassemble",
+            remap = false
     )
     private boolean wrapCanDisassemble(Operation<Boolean> original) {
         if (!original.call()) return false;
@@ -34,21 +38,22 @@ public abstract class MixinEurekaShipControl {
         return level != null && !(level.isOutsideBuildHeight(minShipY) || level.isOutsideBuildHeight(maxShipY));
     }
 
-    @WrapOperation(
+    @ModifyVariable(
             method = "getPlayerForwardVel",
-            at = @At(value = "INVOKE", target = "Lorg/joml/Vector3d;normalize()Lorg/joml/Vector3d;")
-    )
-    private Vector3d unNormalize(Vector3d instance, Operation<Vector3d> original) {
-        return instance.mul(Config.getServer().EUREKA_IMPULSE_SPEED_RATE.get());
-    }
-
-    @Redirect(
-            method = "applyForces",
-            at = @At(value = "FIELD", target = "Lorg/valkyrienskies/eureka/ship/EurekaShipControl;isCruising:Z",
-                    opcode = Opcodes.GETFIELD, ordinal = 2),
+            at = @At(value = "STORE"),
+            name = "velOrthogonalToPlayerUp",
             remap = false
     )
-    private boolean maintainCruise(EurekaShipControl instance) {
-        return true;
+    private Vector3d noDecelerationAtControl(Vector3d orig) {
+        return new Vector3d();
+    }
+
+    @WrapOperation(
+            method = "applyForces",
+            at = @At(value = "INVOKE", target = "Lorg/valkyrienskies/eureka/ship/StabilizeKt;stabilize(Lorg/valkyrienskies/core/impl/game/ships/PhysShipImpl;Lorg/joml/Vector3dc;Lorg/joml/Vector3dc;Lorg/valkyrienskies/core/api/ships/PhysShip;ZZ)V"),
+            remap = false
+    )
+    private void disableLinearStabilizer(PhysShipImpl physShipImpl, Vector3dc omega, Vector3dc vel, PhysShip physShip, boolean linear, boolean yaw, Operation<Void> original){
+        original.call(physShipImpl, omega, vel, physShip, false, yaw);
     }
 }
