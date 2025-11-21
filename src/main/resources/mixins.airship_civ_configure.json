@@ -12,7 +12,10 @@
     "MixinPropellerBearingBlockEntity",
     "MixinPropellerController",
     "MixinServerLevel",
-    "MixinWingBlock"
+    "MixinWingBlock",
+    "thrown_velocity.MixinEntity",
+    "thrown_velocity.MixinPlayer",
+    "thrown_velocity.MixinProjectile"
   ],
   "client": [
     "MixinClientPacketHandler"
