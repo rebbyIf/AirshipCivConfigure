@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "vs_eureka:balloons"
+    },
+    "0": {
+      "item": "minecraft:purple_dye"
+    }
+  },
+  "pattern": [
+    "###",
+    "#0#",
+    "###"
+  ],
+  "result": {
+    "item": "vs_eureka:purple_balloon",
+    "count": 8
+  },
+  "group": "colored_balloons"
+}

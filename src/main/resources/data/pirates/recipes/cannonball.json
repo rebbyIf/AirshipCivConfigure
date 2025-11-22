@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "cannonball",
+  "ingredients": [
+
+    {"item": "minecraft:gunpowder"},
+    {"item": "minecraft:iron_ingot"}
+
+  ],
+  "result": {
+    "count": 4,
+    "item": "pirates:cannonball"
+  }
+}

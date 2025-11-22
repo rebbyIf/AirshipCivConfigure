@@ -1,3 +1,4 @@
+import net.minecraftforge.gradle.common.util.MavenArtifactDownloader
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -120,6 +121,8 @@ minecraft {
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
             args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
         }
+
+
     }
 }
 
@@ -176,27 +179,24 @@ repositories {
     // Mirror
     maven { url = "https://maven.enjarai.dev/mirrors" }
 
-    repositories {
-        exclusiveContent {
-            forRepository {
-                maven {
-                    name = "Modrinth"
-                    url = "https://api.modrinth.com/maven"
-                }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
             }
-            forRepositories(fg.repository) // Only add this if you're using ForgeGradle, otherwise remove this line
-            filter {
-                includeGroup "maven.modrinth"
-            }
+        }
+        forRepositories(fg.repository) // Only add this if you're using ForgeGradle, otherwise remove this line
+        filter {
+            includeGroup "maven.modrinth"
         }
     }
 
-    repositories {
-        maven {
-            name = "TerraformersMC"
-            url = "https://maven.terraformersmc.com/"
-        }
+    maven {
+        name = "TerraformersMC"
+        url = "https://maven.terraformersmc.com/"
     }
+
 
 }
 
@@ -254,6 +254,7 @@ dependencies {
 
     compileOnly("org.valkyrienskies.eureka:eureka-1201-common:${eureka_version}")
     runtimeOnly fg.deobf("org.valkyrienskies.eureka:eureka-1201-forge:${eureka_version}")
+
     //implementation "org.valkyrienskies.eureka:eureka-1201-common:${eureka_version}"
 
     runtimeOnly("maven.modrinth:lmft:1.0.4+1.20.1-forge")
@@ -276,6 +277,16 @@ dependencies {
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
     // Mods withing the Libs folder
 //    runtimeOnly fg.deobf("libs:eureka-1201:1.5.1-beta.3")
+
+    //implementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+    // Add Connector to the launch classpath
+//    implementation fg.deobf("libs:fabric-api-0.92.6+1.11.14+1.20.1")
+//    implementation fg.deobf("libs:Connector-1.0.0-beta.46+1.20.1")
+//    implementation fg.deobf("libs:vs_sails-1.20.1-0.2.1-forge")
+//    implementation fg.deobf("libs:vlib-1.20.1-0.0.15-alpha+forge")
+//    // Important
+//    implementation fg.deobf("libs:ValkyrienPirates-1.8.1-forge")
+
     runtimeOnly fg.deobf("libs:aetherial-islands:2.0.1")
     runtimeOnly fg.deobf("libs:lithostitched-forge-1.20.1:1.4.11")
     runtimeOnly fg.deobf("libs:moredensityfunctions-forge-1.20.1:2.2.1")
@@ -301,6 +312,13 @@ mixin {
     add sourceSets.main, 'airship_civ_configure.refmap.json'
 
     config 'mixins.airship_civ_configure.json'
+}
+
+afterEvaluate {
+    def cleanArtifactJar = Objects.requireNonNull(MavenArtifactDownloader.generate(project, "net.minecraft:joined:${project.MCP_VERSION}:srg", true), "Cannot find clean minecraft artifact")
+    minecraft.runs.configureEach {
+        property("connector.clean.path", cleanArtifactJar)
+    }
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
