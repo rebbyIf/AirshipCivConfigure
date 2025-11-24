@@ -1,0 +1,11 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "minecraft:snowy_plains",
+  "spawners":
+  {
+    "type": "minecraft:sheep",
+    "weight": 12,
+    "minCount": 1,
+    "maxCount": 4
+  }
+}

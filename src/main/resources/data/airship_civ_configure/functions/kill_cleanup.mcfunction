@@ -1,0 +1,5 @@
+kill @e[y=-256,dy=128]
+kill @e[type=minecraft:tnt]
+kill @e[type=witherstormmod:super_tnt]
+kill @e[type=minecraft:tnt_minecart]
+execute as @w at @s run kill @e[type=witherstormmod:formidibomb,distance=300..]
