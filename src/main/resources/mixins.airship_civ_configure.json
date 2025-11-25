@@ -6,6 +6,7 @@
   "mixins": [
     "MixinEurekaShipControl",
     "MixinFlapBlock",
+    "MixinGraveStoneDeathEvents",
     "MixinLevel",
     "MixinPersistentEntitySectionManager",
     "MixinProjectile",
