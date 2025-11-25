@@ -259,6 +259,8 @@ dependencies {
 
     runtimeOnly("maven.modrinth:lmft:1.0.4+1.20.1-forge")
 
+    implementation fg.deobf("curse.maven:gravestone-mod-238551:7099725")
+
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compile against the JEI API but do not include it at runtime
