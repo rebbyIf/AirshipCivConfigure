@@ -15,6 +15,7 @@
     "MixinPropellerBearingBlockEntity",
     "MixinPropellerController",
     "MixinServerLevel",
+    "MixinServerPlayer",
     "MixinWingBlock",
     "MixinWorldEntityHandler",
     "thrown_velocity.MixinEntity",
